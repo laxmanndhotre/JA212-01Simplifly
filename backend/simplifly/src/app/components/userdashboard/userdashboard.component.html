@@ -1,0 +1,43 @@
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div *ngIf="currentUser">
+  <h2>User Dashboard</h2>
+  <p>Welcome, {{ currentUser.username }}!</p>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">User Information</h5>
+      <ul class="list-unstyled">
+        <li><strong>Email:</strong> {{ currentUser.email }}</li>
+        <li><strong>Contact Number:</strong> {{ currentUser.contactNumber }}</li>
+        <li><strong>Role:</strong> {{ currentUser.role }}</li>
+        <li><strong>Created At:</strong> {{ currentUser.createdAt | date:'medium' }}</li> 
+        <li><strong>Updated At:</strong> {{ currentUser.updatedAt | date:'medium' }}</li> 
+      </ul>
+      <button class="btn btn-primary" (click)="showFlights()">Book Flight</button>
+    </div>
+  </div>
+
+  <div *ngIf="showFlightDetails"> 
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Selected Flight</h5>
+        <ul class="list-unstyled">
+          <li><strong>Flight Name:</strong> {{ selectedFlight?.flightName }}</li>
+          <li><strong>Flight Number:</strong> {{ selectedFlight?.flightNumber }}</li>
+          <li><strong>Origin:</strong> {{ selectedRoute?.origin }}</li>
+          <li><strong>Destination:</strong> {{ selectedRoute?.destination }}</li>
+          <li><strong>Departure Time:</strong> {{ selectedRoute?.departureTime }}</li>
+          <li><strong>Arrival Time:</strong> {{ selectedRoute?.arrivalTime }}</li>
+          <li><strong>Fare:</strong> {{ selectedFlight?.fare }} {{ selectedFlight?. }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-success" (click)="navigateToBooking()" [disabled]="!selectedFlight">Book Now</button> 
+</div>
+
+<div *ngIf="!currentUser && !errorMessage">
+  <p>Loading user data...</p>
+</div>

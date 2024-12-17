@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+  <h2>Passenger Dashboard</h2>
+
+  <!-- Available Flights Section -->
+  <section class="section flights">
+    <h3>Available Flights</h3>
+    <div *ngFor="let flight of flights" class="flight-card">
+      <div class="flight-details">
+        <p><strong>Flight Name:</strong> {{ flight.flightName }}</p>
+        <p><strong>Flight Number:</strong> {{ flight.flightNumber }}</p>
+        <p><strong>Total Seats:</strong> {{ flight.totalSeats }}</p>
+        <p><strong>Fare:</strong> ₹{{ flight.fare }}</p>
+        <p><strong>Baggage Info:</strong> {{ flight.baggageInfo }}</p>
+        <p><strong>Origin:</strong> {{ flight.route?.origin }}</p>
+        <p><strong>Destination:</strong> {{ flight.route?.destination }}</p>
+        <p><strong>Departure Time:</strong> {{ flight.route?.departureTime | date: 'short' }}</p>
+        <p><strong>Arrival Time:</strong> {{ flight.route?.arrivalTime | date: 'short' }}</p>
+        <p><strong>Available Seats:</strong> {{ flight.route?.availableSeats }}</p>
+      </div>
+      <button (click)="redirectToBooking(flight.flightId)" class="btn-book">Book Now</button>
+    </div>
+  </section>
+
+  <!-- Booking History Section -->
+  <section class="section bookings">
+    <h3>Booking History</h3>
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <p><strong>Booking ID:</strong> {{ booking.bookingId }}</p>
+      <p><strong>Route ID:</strong> {{ booking.routeId }}</p>
+      <p><strong>Seats Booked:</strong> {{ booking.seatsBooked }}</p>
+      <p><strong>Total Price:</strong> ₹{{ booking.totalPrice }}</p>
+      <p><strong>Status:</strong> {{ booking.status }}</p>
+      <p><strong>Booking Date:</strong> {{ booking.bookingDate | date: 'short' }}</p>
+      <button (click)="cancelBooking(booking.bookingId)" class="btn-cancel">Cancel Booking</button>
+    </div>
+  </section>
+
+  <!-- Update User Profile Section -->
+  <section class="section profile">
+    <h3>Update Profile</h3>
+    <button (click)="redirectToUpdateProfile()" class="btn-update">Update Profile</button>
+  </section>
+
+  <!-- Logout Button -->
+  <button (click)="logout()" class="btn-logout">Logout</button>
+</div>

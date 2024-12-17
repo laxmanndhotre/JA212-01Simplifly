@@ -1,0 +1,104 @@
+/* Basic styles for the login page */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: relative; /* Positioning context for the background image */
+  z-index: 1; /* Ensure the content is above the background */
+}
+
+/* Add the background image to the login page */
+body {
+  background-image: url('/imgs/simplyfly.jpg');
+  background-size: cover;  /* Make sure the image covers the full viewport */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat;  /* Prevent repeating the image */
+  background-attachment: fixed;  /* Fix the background when scrolling */
+  height: 100vh;  /* Ensure the background covers the entire viewport height */
+  margin: 0;  /* Remove default margin */
+}
+
+.login-container {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);  /* Add some transparency to the container to make the background visible */
+}
+
+
+
+/* Style for the welcome message */
+.welcome-message {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-message h1 {
+  font-size: 28px;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.welcome-message p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Style for the login title */
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style for the form */
+.login-form .form-group {
+  margin-bottom: 15px;
+}
+
+.login-form .form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.login-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.login-form .form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-form .form-group button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-form .form-group button:disabled {
+  background-color: #ccc;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}

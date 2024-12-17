@@ -1,0 +1,14 @@
+.image-container {
+    
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-container.hidden {
+    opacity: 0;
+}
+.image-center {
+    display: flex; /* Make the outer div a flex container */
+    justify-content: center; /* Center the inner div horizontally */
+    align-items: center; /* Center the inner div vertically */
+}

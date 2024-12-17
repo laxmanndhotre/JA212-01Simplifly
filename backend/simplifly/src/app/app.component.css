@@ -1,0 +1,30 @@
+/* General Layout */
+.app-container {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .nav-item .nav-link {
+  font-size: 16px;
+}
+
+/* Content container */
+.content-container {
+  padding: 20px;
+}
+
+/* Optional: Styling for active links */
+.navbar-nav .nav-item.active .nav-link {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Add more styles as needed for the overall layout */

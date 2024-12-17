@@ -1,0 +1,30 @@
+.register-button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 20px; /* Add some space below the button */
+  }
+  
+  .card {
+    margin: 20px;
+    border: 1px solid #ddd;
+    background-color: antiquewhite;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }

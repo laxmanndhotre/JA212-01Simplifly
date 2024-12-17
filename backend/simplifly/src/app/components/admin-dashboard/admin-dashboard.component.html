@@ -1,0 +1,128 @@
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  
+  <div class="section">
+    <h2>User Management</h2>
+    <button (click)="navigateToAddUser()">Add User</button>
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button (click)="updateUser(user.userId)">Update</button>
+            <button (click)="deleteUser(user.userId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Flight Management</h2>
+    <button (click)="navigateToAddFlight()">Add Flight</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Flight Name</th>
+          <th>Flight Number</th>
+          <th>Total Seats</th>
+          <th>Fare</th>
+          <th>Baggage Info</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>{{ flight.flightName }}</td>
+          <td>{{ flight.flightNumber }}</td>
+          <td>{{ flight.totalSeats }}</td>
+          <td>{{ flight.fare }}</td>
+          <td>{{ flight.baggageInfo }}</td>
+          <td>
+            <button (click)="updateFlight(flight.flightId)">Update</button>
+            <button (click)="deleteFlight(flight.flightId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Route Management</h2>
+    <button (click)="navigateToAddRoute()">Add Route</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Route ID</th>
+          <th>Flight ID</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Available Seats</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let route of routes">
+          <td>{{ route.routeId }}</td>
+          <td>{{ route.flightId }}</td>
+          <td>{{ route.origin }}</td>
+          <td>{{ route.destination }}</td>
+          <td>{{ route.departureTime }}</td>
+          <td>{{ route.arrivalTime }}</td>
+          <td>{{ route.availableSeats }}</td>
+          <td>
+            <button (click)="updateRoute(route.routeId)">Update</button>
+            <button (click)="deleteRoute(route.routeId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Booking Management</h2>
+    <button (click)="navigateToAddBooking()">Add Booking</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>User ID</th>
+          <th>Route ID</th>
+          <th>Seats Booked</th>
+          <th>Total Price</th>
+          <th>Status</th>
+          <th>Booking Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings">
+          <td>{{ booking.bookingId }}</td>
+          <td>{{ booking.userId }}</td>
+          <td>{{ booking.routeId }}</td>
+          <td>{{ booking.seatsBooked }}</td>
+          <td>{{ booking.totalPrice }}</td>
+          <td>{{ booking.status }}</td>
+          <td>{{ booking.bookingDate }}</td>
+          <td>
+            <button (click)="deleteBooking(booking.bookingId)">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

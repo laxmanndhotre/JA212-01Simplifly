@@ -1,0 +1,41 @@
+<h2>User List</h2>
+
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div *ngIf="!isRegistering" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+  <div *ngFor="let user of users" class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a [routerLink]="['/user', user.userId]">{{ user.username }}</a>
+        </h5>
+        <ul class="list-unstyled">
+          <li>Email: {{ user.email }}</li>
+          <li>Contact: {{ user.contactNumber }}</li>
+          <li>Role: {{ user.role }}</li>
+          <li>Created At: {{ user.createdAt | date:'medium' }}</li>
+          <li>Updated At: {{ user.updatedAt | date:'medium' }}</li>
+        </ul>
+        <button class="btn btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#deleteModal' + user.userId">Delete</button>
+      </div>
+    </div>
+    <div class="modal fade" [id]="'deleteModal' + user.userId" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete {{ user.username }}?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" (click)="deleteUser(user)" data-bs-dismiss="modal">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

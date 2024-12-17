@@ -1,0 +1,73 @@
+
+<div class="container mt-5 d-flex justify-content-between align-items-center"> 
+  <div>
+      <h1>Welcome to the Application</h1>
+      <p>This is the home page.</p>
+  </div>
+  <div> 
+      <button class="btn btn-primary me-2">Login</button> 
+      <button class="btn btn-primary" *ngIf="!showRegisterForm" (click)="toggleForm()">Register</button> 
+  </div>
+</div>
+<div class="image-center">
+<div *ngIf="!showRegisterForm" class="col-md-6 d-flex justify-content-center align-items-center"> 
+  <img src="../../../assets/airplane.png" alt="Welcome Image" class="img-fluid"> 
+</div>
+</div>
+<div *ngIf="showRegisterForm" class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6"> 
+          <div class="card">
+              <div class="card-body">
+                  <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+                      <div class="mb-3">
+                          <label for="username" class="form-label">Username</label>
+                          <input type="text" class="form-control" id="username" formControlName="username">
+                          <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)" class="text-danger">
+                              Username is required.
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="email" formControlName="email">
+                          <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)" class="text-danger">
+                              <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</div>
+                              <div *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid.</div>
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="contactNumber" class="form-label">Contact Number</label>
+                          <input type="text" class="form-control" id="contactNumber" formControlName="contactNumber">
+                          <div *ngIf="registerForm.get('contactNumber')?.invalid && (registerForm.get('contactNumber')?.dirty || registerForm.get('contactNumber')?.touched)" class="text-danger">
+                              Contact Number is required.
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="role" class="form-label">Role</label>
+                          <select class="form-select" id="role" formControlName="role">
+                              <option value="" disabled>Select a role</option>
+                              <option value="admin">Admin</option>
+                              <option value="passenger">Passenger</option>
+                              <option value="flight_owner">Flight Owner</option>
+                          </select>
+                          <div *ngIf="registerForm.get('role')?.invalid && (registerForm.get('role')?.dirty || registerForm.get('role')?.touched)" class="text-danger">
+                              Role is required.
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="passwordHash" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="passwordHash" formControlName="passwordHash">
+                          <div *ngIf="registerForm.get('passwordHash')?.invalid && (registerForm.get('passwordHash')?.dirty || registerForm.get('passwordHash')?.touched)" class="text-danger">
+                              Password is required.
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn-success" [disabled]="registerForm.invalid">Register User</button>
+                      <button type="button" class="btn btn-secondary" (click)="closeRegisterForm()">Cancel</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</div>

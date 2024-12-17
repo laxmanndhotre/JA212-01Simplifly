@@ -1,0 +1,67 @@
+<div class="dashboard-container">
+  <h2>Flight Owner Dashboard</h2>
+
+  <!-- Section 1: Flight Management -->
+  <div class="section">
+    <h3>Flight Management</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Flight Name</th>
+          <th>Number</th>
+          <th>Total Seats</th>
+          <th>Fare</th>
+          <th>Baggage Info</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights">
+          <td>{{ flight.flightName }}</td>
+          <td>{{ flight.flightNumber }}</td>
+          <td>{{ flight.totalSeats }}</td>
+          <td>{{ flight.fare | currency }}</td>
+          <td>{{ flight.baggageInfo }}</td>
+          <td>
+            <button (click)="updateFlight(flight.flightId)">Update</button>
+            <button (click)="deleteFlight(flight.flightId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="navigateToAddFlight()">Add Flight</button>
+  </div>
+
+  <!-- Section 2: Route Management -->
+  <div class="section">
+    <h3>Route Management</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Flight ID</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Available Seats</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let route of routes">
+          <td>{{ route.flightId }}</td>
+          <td>{{ route.origin }}</td>
+          <td>{{ route.destination }}</td>
+          <td>{{ route.departureTime | date: 'short' }}</td>
+          <td>{{ route.arrivalTime | date: 'short' }}</td>
+          <td>{{ route.availableSeats }}</td>
+          <td>
+            <button (click)="updateRoute(route.routeId)">Update</button>
+            <button (click)="deleteRoute(route.routeId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="navigateToAddRoute()">Add Route</button>
+  </div>
+</div>
